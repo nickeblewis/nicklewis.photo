@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import WrapperGallery from '../components/Gallery/WrapperGallery'
 import GalleryComposition from '../components/Gallery/GalleryComposition'
 import GalleryHead from '../components/Gallery/GalleryHead'
-import SEO from '../components/SEO'
+//import SEO from '../components/SEO'
 
 const GalleryTemplate = ({ data, location }) => {
   const { title, slug, tags, images } = data.contentfulGallery
@@ -16,7 +16,7 @@ const GalleryTemplate = ({ data, location }) => {
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO pagePath={slug} galleryNode={galleryNode} gallerySEO />
+      
       <GalleryHead title={title} tags={tags} />
       <WrapperGallery>
         <GalleryComposition photos={images} />
@@ -31,18 +31,8 @@ export const query = graphql`
       title
       id
       slug
-      metaDescription {
-        internal {
-          content
-        }
-      }
       publishDate(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      tags {
-        title
-        id
-        slug
-      }
       heroImage {
         ogimg: resize(width: 900) {
           src
@@ -50,7 +40,11 @@ export const query = graphql`
           height
         }
       }
-
+      tags {
+        title
+        id
+        slug
+      }
       images {
         title
         fluid(maxWidth: 1000) {

@@ -5,7 +5,7 @@ import WrapperGrid from '../components/WrapperGrid'
 import BlogHero from '../components/Blog/BlogHero'
 import BlogBody from '../components/Blog/BlogBody'
 import BlogList from '../components/Blog/BlogList'
-import SEO from '../components/SEO'
+//import SEO from '../components/SEO'
 
 const Blog = ({ data, location }) => {
   const posts = data.allContentfulPost.edges
@@ -13,7 +13,7 @@ const Blog = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO />
+      
       <WrapperGrid>
         <BlogHero image={blog.heroImage} />
         <BlogBody>

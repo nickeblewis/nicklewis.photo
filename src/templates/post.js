@@ -8,7 +8,7 @@ import WrapperPost from '../components/Post/WrapperPost'
 import PostHead from '../components/Post/PostHead'
 import PostHero from '../components/Post/PostHero'
 import PostArticle from '../components/Post/PostArticle'
-import SEO from '../components/SEO'
+//import SEO from '../components/SEO'
 
 const PostTemplate = ({ data, location }) => {
   const {
@@ -31,7 +31,6 @@ const PostTemplate = ({ data, location }) => {
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO pagePath={slug} postNode={postNode} postSEO />
       <PostHead
         title={title}
         date={publishDate}
@@ -56,11 +55,6 @@ export const query = graphql`
       title
       id
       slug
-      metaDescription {
-        internal {
-          content
-        }
-      }
       publishDate(formatString: "DD MMM YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
       tags {

@@ -9,7 +9,7 @@ import ContactBody from '../components/Contact/ContactBody'
 import ContactBodyTop from '../components/Contact/ContactBodyTop'
 import ContactBodyBottom from '../components/Contact/ContactBodyBottom'
 import ContactForm from '../components/Contact/ContactForm'
-import SEO from '../components/SEO'
+//import SEO from '../components/SEO'
 
 const Contact = ({ data, location }) => {
   const postNode = {
@@ -22,7 +22,7 @@ const Contact = ({ data, location }) => {
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO postNode={postNode} pagePath="contact" customTitle />
+      
       <WrapperGrid>
         <ContactHero image={info.heroImage} />
         <ContactBody>

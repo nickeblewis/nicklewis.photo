@@ -99,7 +99,7 @@ const Navigation = () => {
   return (
     <Nav>
       <Title to="/">
-        <h1>I Am Matthias</h1>
+        <h1>Nick Lewis Photography</h1>
       </Title>
       <Header>
         <MenuMobile

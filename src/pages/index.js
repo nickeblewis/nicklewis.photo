@@ -70,7 +70,7 @@ export const query = graphql`
           }
           body {
             childMarkdownRemark {
-              excerpt(pruneLength: 140)
+              excerpt(pruneLength: 240)
             }
           }
         }

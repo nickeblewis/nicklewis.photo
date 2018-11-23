@@ -4,6 +4,8 @@ import find from 'lodash/find'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
+import WrapperGallery from '../components/Gallery/WrapperGallery'
+import GalleryComposition from '../components/Gallery/GalleryComposition'
 import WrapperPost from '../components/Post/WrapperPost'
 import PostHead from '../components/Post/PostHead'
 import PostHero from '../components/Post/PostHero'
@@ -19,6 +21,7 @@ const PostTemplate = ({ data, location }) => {
     body,
     publishDate,
     tags,
+    gallery,
   } = data.contentfulPost
   const postNode = data.contentfulPost
 
@@ -26,6 +29,7 @@ const PostTemplate = ({ data, location }) => {
     data.allContentfulPost.edges,
     ({ node: post }) => post.id === id
   )
+  console.log(data)
   return (
     <Layout location={location}>
       <Helmet>
@@ -45,6 +49,9 @@ const PostTemplate = ({ data, location }) => {
           next={postIndex.next}
         />
       </WrapperPost>
+      <WrapperGallery>
+        <GalleryComposition photos={gallery} />
+      </WrapperGallery>
     </Layout>
   )
 }
@@ -61,6 +68,12 @@ export const query = graphql`
         title
         id
         slug
+      }
+      gallery {
+        title
+        fluid(maxWidth: 1000) {
+          ...GatsbyContentfulFluid_withWebp
+        }
       }
       heroImage {
         title

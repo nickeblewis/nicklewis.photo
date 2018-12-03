@@ -8,20 +8,20 @@ const typography = new Typography({
   scaleRatio: 5 / 2,
   googleFonts: [
     {
-      name: 'Montserrat',
+      name: 'Patua One',
       styles: ['900', '900i'],
     },
     {
-      name: 'Source Code Pro',
+      name: 'Merriweather Sans',
       styles: ['400', '900'],
     },
     {
-      name: 'IBM Plex Mono',
+      name: 'Merriweather',
       styles: ['400'],
     },
   ],
-  headerFontFamily: ['Montserrat', 'Helvetica', 'sans-serif'],
-  bodyFontFamily: ['Source Code Pro', 'Helvetica', 'sans-serif'],
+  headerFontFamily: ['Merriweather Sans', 'Helvetica', 'sans-serif'],
+  bodyFontFamily: ['Merriweather', 'Helvetica', 'sans-serif'],
 
   headerWeight: 900,
   bodyWeight: 400,

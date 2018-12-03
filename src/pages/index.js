@@ -53,6 +53,7 @@ const Index = ({ data, location }) => {
 export const query = graphql`
   query {
     allContentfulGallery(
+      filter: { public: { ne: false } }
       limit: 1000
       sort: { fields: [publishDate], order: ASC }
     ) {

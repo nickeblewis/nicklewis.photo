@@ -32,6 +32,13 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-snipcart',
+      options: { 
+        apiKey: 'NzIzOTg5MjktMzA3NC00ODk0LWE5N2ItNTNjMDA1YzI3OWQ3NjM2MzY3MDEyNTg3MjIyMTA3',
+        autoPop: 'true'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: config.siteUrl,
@@ -87,7 +94,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/some-other-sitemap.xml`,
+      }
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

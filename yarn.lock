@@ -5458,6 +5458,10 @@ gatsby-plugin-sitemap@^2.0.0-rc.2:
     "@babel/runtime" "^7.0.0"
     sitemap "^1.12.0"
 
+gatsby-plugin-snipcart@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-snipcart/-/gatsby-plugin-snipcart-1.0.6.tgz#21460b958980e7f7b335874522ae07187dd1840f"
+
 gatsby-plugin-styled-components@^3.0.0-rc.5:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.0.1.tgz#39b46bd68a055785382da81cebb036758d66e5d2"

@@ -111,7 +111,7 @@ const Navigation = () => {
           <ul>
             <li>
               <h2>
-                <Link to="/">Portfolio</Link>
+                <Link to="/">Portfolios</Link>
               </h2>
             </li>
             <li>

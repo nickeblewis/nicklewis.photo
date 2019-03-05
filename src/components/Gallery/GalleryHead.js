@@ -77,26 +77,17 @@ const Tag = styled.li`
 
 const GalleryHead = props => {
   return (
-    <Headroom
-      style={{
-        zIndex: '899',
-        transition: 'all .5s ease-in-out',
-      }}
-    >
-      <Wrapper>
-        <BackButton to="/">
-          <h4>⬅ Back</h4>
-        </BackButton>
-        <Title>{props.title}</Title>
-        <List>
-          {props.tags.map(tag => (
-            <Tag key={tag.id}>
-              <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
-            </Tag>
-          ))}
-        </List>
-      </Wrapper>
-    </Headroom>
+    <Wrapper>
+      <Title>{props.title}</Title>
+      <List>
+        {props.tags.map(tag => (
+          <Tag key={tag.id}>
+            <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
+          </Tag>
+        ))}
+      </List>
+    </Wrapper>
+    
   )
 }
 

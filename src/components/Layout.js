@@ -69,8 +69,8 @@ const Layout = ({ children, location }) => {
         <title>{config.siteTitle}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logos/logo-512.png" />
-        <link rel="apple-touch-icon" href="/logos/logo-512.png" />
+        <link rel="icon" href="/logos/logo.png" />
+        <link rel="apple-touch-icon" href="/logos/logo.png" />
         <meta name="description" content={config.siteDescription} />
         <meta property="og:title" content={config.siteTitle} />
         <meta property="og:url" content={config.siteUrl} />

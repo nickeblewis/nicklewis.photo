@@ -85,12 +85,6 @@ const Tag = styled.li`
 
 const ArticleHead = props => {
   return (
-    <Headroom
-      style={{
-        zIndex: '899',
-        transition: 'all .5s ease-in-out',
-      }}
-    >
       <Wrapper>
         <BackButton to="/blog/">
           <h4>⬅ Back</h4>
@@ -107,7 +101,7 @@ const ArticleHead = props => {
           ))}
         </List>
       </Wrapper>
-    </Headroom>
+    
   )
 }
 

@@ -9,18 +9,18 @@ import GalleryHead from '../components/Gallery/GalleryHead'
 //import SEO from '../components/SEO'
 
 const ProductTemplate = ({ data, location }) => {
-  console.log('product template',data)
-  const { title, slug, tags, defaultProductVariant } = data.sanityGallery
+  console.log('product template', data)
+  const { title, slug, tags, images } = data.sanityGallery
   const galleryNode = data.contentfulGallery
   return (
     <Layout location={location}>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
-      
-      <GalleryHead title={title} tags={['tags']} />
+
+      <GalleryHead title={title} tags={tags} />
       <WrapperGallery>
-        <GalleryComposition source="sanity" photos={defaultProductVariant.images} />
+        <GalleryComposition source="sanity" photos={images} />
       </WrapperGallery>
     </Layout>
   )
@@ -34,19 +34,15 @@ export const query = graphql`
       slug {
         current
       }
-      
+      tags
       images {
         asset {
           fluid(maxWidth: 700) {
             ...GatsbySanityImageFluid
           }
- 
-      
+        }
       }
     }
-
-      }
-    }
-  
+  }
 `
 export default ProductTemplate

@@ -62,7 +62,7 @@ const Excerpt = styled.p`
 `
 const ProductList = props => {
   return (
-    <ProjectLink key={props.id} to={`/product/${props.id}/`}>
+    <ProjectLink key={props.id} to={`/gallery/${props.id}/`}>
       <Cover>
         <Img fluid={props.image} />
       </Cover>

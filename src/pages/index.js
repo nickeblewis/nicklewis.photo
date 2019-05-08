@@ -27,7 +27,7 @@ const Index = ({ data, location }) => {
   console.log('dataaaaaaaaaaaa', data)
   const home = data.contentfulHome
   const galleries = data.allContentfulGallery.edges
-  const products = data.allSanityProduct.edges
+  const products = data.allSanityGallery.edges
   return (
     <Layout location={location}>
       <SEO />
@@ -52,7 +52,7 @@ const Index = ({ data, location }) => {
                 key={prod.id}
                 id={prod.id}
                 slug={prod.slug.current}
-                image={prod.defaultProductVariant.images}
+                image={prod.images}
                 title={prod.title}
                 date={prod._createdAt}
                 excerpt={prod.blurb}
@@ -82,7 +82,14 @@ export const query = graphql`
         slug {
           current
         }
-        images
+        images {
+          asset {
+            fluid(maxWidth: 700) {
+            ...GatsbySanityImageFluid
+          }
+ 
+          }
+        }
 
       }
     }

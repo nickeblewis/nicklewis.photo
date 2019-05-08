@@ -64,21 +64,27 @@ svg {
 const Layout = ({ children, location }) => {
   return (
     <div className="siteRoot">
-      <Helmet>
-        <html lang="en" />
-        <title>{config.siteTitle}</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logos/logo.png" />
-        <link rel="apple-touch-icon" href="/logos/logo.png" />
-        <meta name="description" content={config.siteDescription} />
-        <meta property="og:title" content={config.siteTitle} />
-        <meta property="og:url" content={config.siteUrl} />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={config.siteTitle} />
-      </Helmet>
-
+      <Helmet
+        htmlAttributes={{ lang: 'en' }}
+        meta={[{ name: 'description', content: config.siteDescription }]}
+        title={config.siteTitle}
+        link={[{
+          href:"https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css",
+          rel:"stylesheet",
+          type:"text/css" 
+        }]}
+        script={[{ 
+          type: 'text/javascript', 
+          url:"",
+          id: "snipcart",
+          "data-api-key": "NzIzOTg5MjktMzA3NC00ODk0LWE5N2ItNTNjMDA1YzI3OWQ3NjM2MzY3MDEyNTg3MjIyMTA3",
+          src:"https://cdn.snipcart.com/scripts/2.0/snipcart.js" 
+        },{
+          type: 'text/javascript',
+          src:"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+        }]} 
+      />
+     
       <ThemeProvider theme={theme}>
         <Wrapper>
           <div id="outer-container">

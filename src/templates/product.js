@@ -8,8 +8,9 @@ import GalleryComposition from '../components/Gallery/GalleryComposition'
 import GalleryHead from '../components/Gallery/GalleryHead'
 //import SEO from '../components/SEO'
 
-const GalleryTemplate = ({ data, location }) => {
-  const { title, slug, tags, images } = data.contentfulGallery
+const ProductTemplate = ({ data, location }) => {
+  console.log('product template',data)
+  const { title, slug, tags, defaultProductVariant } = data.sanityGallery
   const galleryNode = data.contentfulGallery
   return (
     <Layout location={location}>
@@ -17,44 +18,35 @@ const GalleryTemplate = ({ data, location }) => {
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
       
-      <GalleryHead title={title} tags={tags} />
+      <GalleryHead title={title} tags={['tags']} />
       <WrapperGallery>
-        <GalleryComposition photos={images} />
+        <GalleryComposition source="sanity" photos={defaultProductVariant.images} />
       </WrapperGallery>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulGallery(slug: { eq: $slug }) {
+  query($id: String!) {
+    sanityGallery(id: { eq: $id }) {
       title
       id
-      slug
-      publishDate(formatString: "MMMM DD, YYYY")
-      publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      heroImage {
-        ogimg: resize(width: 900) {
-          src
-          width
-          height
-        }
+      slug {
+        current
       }
-      tags {
-        title
-        id
-        slug
-      }
+      
       images {
-        title
-        file {
-          url
-        }
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp
-        }
+        asset {
+          fluid(maxWidth: 700) {
+            ...GatsbySanityImageFluid
+          }
+ 
+      
       }
     }
-  }
+
+      }
+    }
+  
 `
-export default GalleryTemplate
+export default ProductTemplate

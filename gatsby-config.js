@@ -32,13 +32,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-snipcart',
-      options: { 
-        apiKey: 'NzIzOTg5MjktMzA3NC00ODk0LWE5N2ItNTNjMDA1YzI3OWQ3NjM2MzY3MDEyNTg3MjIyMTA3',
-        autoPop: 'true'
-      }
-    },
-    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: config.siteUrl,
@@ -85,6 +78,18 @@ module.exports = {
         process.env.NODE_ENV === 'development'
           ? contentfulConfig.development
           : contentfulConfig.production,
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: '85cmsqr4',
+        dataset: 'production',
+        // To enable preview of drafts, copy .env-example into .env,
+        // and add a token with read permissions
+        token: process.env.SANITY_TOKEN,
+        watchMode: true,
+        overlayDrafts: true
+      }
     },
     {
       resolve: 'gatsby-plugin-google-analytics',

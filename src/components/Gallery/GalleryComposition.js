@@ -6,14 +6,30 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 class GalleryComposition extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      shareOpen: false,
-      anchorEl: null,
-      lightbox: false,
-      currentImage: 0,
-      photos: props.photos.map(photo =>
-        Object.assign({ srcSet: photo.fluid.srcSet })
-      ),
+
+    if (props.source === 'sanity') {
+      console.log('zoooga', props)
+      this.state = {
+        shareOpen: false,
+        anchorEl: null,
+        lightbox: false,
+        currentImage: 0,
+        photos: props.photos.map(photo =>
+          Object.assign({ srcSet: photo.asset.fluid.srcSet })
+        ),
+      }
+      console.log('Boomga', this.state)
+    } else {
+      console.log('zabada')
+      this.state = {
+        shareOpen: false,
+        anchorEl: null,
+        lightbox: false,
+        currentImage: 0,
+        photos: props.photos.map(photo =>
+          Object.assign({ srcSet: photo.fluid.srcSet })
+        ),
+      }
     }
   }
 
@@ -37,37 +53,79 @@ class GalleryComposition extends Component {
   }
 
   render() {
-    const { photos } = this.props
-    return (
-      <>
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-          <Masonry gutter="1rem">
-            {photos.map((photo, i) => (
-              <a
-                key={i}
-                href={photo.fluid.srcSet}
-                onClick={e => this.openLightbox(i, e)}
-              >
-                <Img fluid={photo.fluid} />
-              </a>
-            ))}
-          </Masonry>
-        </ResponsiveMasonry>
-        <Lightbox
-          backdropClosesModal
-          enableKeyboardInput
-          showImageCount
-          imageCountSeparator={'/'}
-          images={this.state.photos}
-          preloadNextImage
-          currentImage={this.state.photo}
-          isOpen={this.state.lightbox}
-          onClickPrev={() => this.gotoPrevLightboxImage()}
-          onClickNext={() => this.gotoNextLightboxImage()}
-          onClose={() => this.closeLightbox()}
-        />
-      </>
-    )
+    const { photos, source } = this.props
+
+    if (source === 'sanity') {
+      return (
+        <>
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+          >
+            <Masonry gutter="1rem">
+              {photos.map((photo, i) => (
+                <a
+                  key={i}
+                  href={photo.asset.fluid}
+                  onClick={e => this.openLightbox(i, e)}
+                >
+                  <Img fluid={photo.asset.fluid} />
+                </a>
+              ))}
+            </Masonry>
+
+            
+          </ResponsiveMasonry>
+          <Lightbox
+            backdropClosesModal
+            enableKeyboardInput
+            showImageCount
+            imageCountSeparator={'/'}
+            images={this.state.photos}
+            preloadNextImage
+            currentImage={this.state.photo}
+            isOpen={this.state.lightbox}
+            onClickPrev={() => this.gotoPrevLightboxImage()}
+            onClickNext={() => this.gotoNextLightboxImage()}
+            onClose={() => this.closeLightbox()}
+          />
+        </>
+      )
+    } else {
+      return (
+        <>
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+          >
+           
+
+            <Masonry gutter="1rem">
+              {photos.map((photo, i) => (
+                <a
+                  key={i}
+                  href={photo.fluid}
+                  onClick={e => this.openLightbox(i, e)}
+                >
+                  <Img fluid={photo.fluid} />
+                </a>
+              ))}
+            </Masonry>
+          </ResponsiveMasonry>
+          <Lightbox
+            backdropClosesModal
+            enableKeyboardInput
+            showImageCount
+            imageCountSeparator={'/'}
+            images={this.state.photos}
+            preloadNextImage
+            currentImage={this.state.photo}
+            isOpen={this.state.lightbox}
+            onClickPrev={() => this.gotoPrevLightboxImage()}
+            onClickNext={() => this.gotoNextLightboxImage()}
+            onClose={() => this.closeLightbox()}
+          />
+        </>
+      )
+    }
   }
 }
 

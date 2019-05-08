@@ -28,6 +28,35 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  const loadProducts = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allSanityGallery {
+          edges {
+            node {
+              id
+              slug {
+                current
+              }
+            }
+          }
+        }
+      }
+    `).then(result => {
+      //console.log('gn', result)
+      result.data.allSanityGallery.edges.map(({ node }) => {
+        createPage({
+          path: `gallery/${node.id}/`,
+          component: path.resolve(`./src/templates/product.js`),
+          context: {
+            id: node.id,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
   const loadGalleries = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -78,5 +107,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadGalleries, loadTags])
+  return Promise.all([loadPosts, loadGalleries, loadTags, loadProducts])
 }

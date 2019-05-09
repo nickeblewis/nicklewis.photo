@@ -52,7 +52,7 @@ const Index = ({ data, location }) => {
                 key={prod.id}
                 id={prod.id}
                 slug={prod.slug.current}
-                image={prod.images}
+                image={prod.heroImage}
                 title={prod.title}
                 date={prod._createdAt}
                 excerpt={prod.blurb}
@@ -81,6 +81,20 @@ export const query = graphql`
         }
         slug {
           current
+        }
+        heroImage {
+         asset {
+           id
+          fluid {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+         }
         }
         images {
           asset {

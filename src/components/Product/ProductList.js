@@ -61,10 +61,11 @@ const Excerpt = styled.p`
   text-transform: none;
 `
 const ProductList = props => {
+  console.log('bongo', props)
   return (
     <ProjectLink key={props.id} to={`/gallery/${props.id}/`}>
       <Cover>
-        <Img fluid={props.image} />
+        <Img fluid={props.image.asset.fluid} />
       </Cover>
       <Title>{props.title}</Title>
       <Excerpt

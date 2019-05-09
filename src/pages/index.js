@@ -59,7 +59,7 @@ const Index = ({ data, location }) => {
               />
               
             ))}
-            <a href="#" className='snipcart-add-item' data-item-id='1' data-item-price='45' data-item-image='o.jpg' data-item-name='test' data-item-description='blah blah' data-item-url='http://snipcart-gatsby.netlify.com'>Click here!!!!!!!!!!</a>
+            
           </PortfolioBodyBottom>
         </PortfolioBody>
       </WrapperGrid>

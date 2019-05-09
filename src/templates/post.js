@@ -29,7 +29,7 @@ const PostTemplate = ({ data, location }) => {
     data.allContentfulPost.edges,
     ({ node: post }) => post.id === id
   )
-  console.log(data)
+
   return (
     <Layout location={location}>
       <Helmet>

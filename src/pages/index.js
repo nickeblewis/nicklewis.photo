@@ -24,7 +24,6 @@ console.log(
                     / 　 づ`
 )
 const Index = ({ data, location }) => {
-  console.log('dataaaaaaaaaaaa', data)
   const home = data.contentfulHome
   const galleries = data.allContentfulGallery.edges
   const products = data.allSanityGallery.edges

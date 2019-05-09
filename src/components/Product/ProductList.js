@@ -61,7 +61,6 @@ const Excerpt = styled.p`
   text-transform: none;
 `
 const ProductList = props => {
-  console.log('bongo', props)
   return (
     <ProjectLink key={props.id} to={`/gallery/${props.id}/`}>
       <Cover>

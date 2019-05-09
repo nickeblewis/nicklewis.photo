@@ -9,7 +9,6 @@ import GalleryHead from '../components/Gallery/GalleryHead'
 //import SEO from '../components/SEO'
 
 const ProductTemplate = ({ data, location }) => {
-  console.log('product template', data)
   const { title, slug, tags, images } = data.sanityGallery
   const galleryNode = data.contentfulGallery
   return (

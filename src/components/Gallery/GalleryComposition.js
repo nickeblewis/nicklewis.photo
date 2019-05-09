@@ -8,7 +8,6 @@ class GalleryComposition extends Component {
     super(props)
 
     if (props.source === 'sanity') {
-      console.log('zoooga', props)
       this.state = {
         shareOpen: false,
         anchorEl: null,
@@ -18,9 +17,7 @@ class GalleryComposition extends Component {
           Object.assign({ srcSet: photo.asset.fluid.srcSet })
         ),
       }
-      console.log('Boomga', this.state)
     } else {
-      console.log('zabada')
       this.state = {
         shareOpen: false,
         anchorEl: null,

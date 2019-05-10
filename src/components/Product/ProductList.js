@@ -64,7 +64,10 @@ const ProductList = props => {
   return (
     <ProjectLink key={props.id} to={`/gallery/${props.id}/`}>
       <Cover>
-        <Img fluid={props.image.asset.fluid} />
+        {props.image.asset &&
+          <Img fluid={props.image.asset.fluid} />
+        }
+        
       </Cover>
       <Title>{props.title}</Title>
       <Excerpt

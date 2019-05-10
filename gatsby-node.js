@@ -28,6 +28,32 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  const loadBlog = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allSanityPost {
+          edges {
+            node {
+              id
+            }
+          }
+        }
+      }
+    `).then(result => {
+      console.log('crazy shit', result)
+      result.data.allSanityPost.edges.map(({ node }) => {
+        createPage({
+          path: `blogit/${node.id}/`,
+          component: path.resolve(`./src/templates/blog.js`),
+          context: {
+            id: node.id,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
   const loadProducts = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -107,5 +133,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadGalleries, loadTags, loadProducts])
+  return Promise.all([loadPosts, loadBlog, loadGalleries, loadTags, loadProducts])
 }

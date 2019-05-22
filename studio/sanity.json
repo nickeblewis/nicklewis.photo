@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "Nick Lewis Blog with Gatsby"
+    "name": "Nfolio.Sanity"
   },
   "api": {
-    "projectId": "p50z86om",
+    "projectId": "85cmsqr4",
     "dataset": "production"
   },
   "plugins": [
@@ -12,20 +12,13 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/dashboard",
     "@sanity/desk-tool",
-    "dashboard-widget-structure-menu",
-    "dashboard-widget-document-list",
-    "dashboard-widget-netlify"
+    "barcode-input"
   ],
   "parts": [
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"
-    },
-    {
-      "name": "part:@sanity/desk-tool/structure",
-      "path": "./deskStructure.js"
     },
     {
       "implements": "part:@sanity/dashboard/config",

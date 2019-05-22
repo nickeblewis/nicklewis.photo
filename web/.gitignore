@@ -1,0 +1,10 @@
+node_modules
+.cache/
+public/
+.DS_Store
+*.log
+contentful-import-error-log*
+.env*
+.contentful.json
+package-lock.json
+.idea

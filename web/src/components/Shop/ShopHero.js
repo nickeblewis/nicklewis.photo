@@ -31,7 +31,7 @@ const ArticleHero = props => {
   return (
     <Wrapper>
       <Hero>
-        <Img fluid={props.image.fluid} />
+        {/*<Img fluid={props.image.fluid} />*/}
       </Hero>
     </Wrapper>
   )

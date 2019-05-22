@@ -170,7 +170,10 @@ const Article = props => {
   console.log(props)
   return (
     <Wrapper>
-      {props.body && <BlockContent blocks={props.body} serializers={serializers} />}
+      {/*{props.body && <BlockContent blocks={props.body} serializers={serializers} />}*/}
+
+
+
       {/* <Body
         dangerouslySetInnerHTML={{
           __html: props.body.childMarkdownRemark.html,

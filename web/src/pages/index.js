@@ -71,6 +71,7 @@ export const query = graphql`
           id
           title
           _createdAt
+          blurb
           _rawBody
           slug {
             current

@@ -1,14 +1,15 @@
-// const path = require(`path`)
-// const { isFuture } = require('date-fns')
-// const { format } = require('date-fns')
+const path = require(`path`)
+const { isFuture } = require('date-fns')
+const { format } = require('date-fns')
+
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   // const loadPosts = new Promise((resolve, reject) => {
-  //   graphql(`
+
   //     {
-  //       allContentfulPost {
+  // export function createPagesulPost {
   //         edges {
   //           node {
   //             slug
@@ -49,7 +50,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allSanityPost.edges.map(({ node }) => {
         const dateSegment = format(node.publishedAt, 'YYYY/MM')
         createPage({
-          path: `blogit/${dateSegment}/${node.slug.current}/`,
+          path: `blog/${dateSegment}/${node.slug.current}/`,
           component: path.resolve(`./src/templates/blog.js`),
           context: {
             id: node.id,
@@ -78,7 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
       //console.log('gn', result)
       result.data.allSanityGallery.edges.map(({ node }) => {        
         createPage({
-          path: `gallery/${node.slug.current}/`,
+          path: `/${node.slug.current}/`,
           component: path.resolve(`./src/templates/product.js`),
           context: {
             id: node.id,
@@ -89,30 +90,30 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  // const loadGalleries = new Promise((resolve, reject) => {
-  //   graphql(`
-  //     {
-  //       allContentfulGallery {
-  //         edges {
-  //           node {
-  //             slug
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `).then(result => {
-  //     result.data.allContentfulGallery.edges.map(({ node }) => {
-  //       createPage({
-  //         path: `${node.slug}/`,
-  //         component: path.resolve(`./src/templates/gallery.js`),
-  //         context: {
-  //           slug: node.slug,
-  //         },
-  //       })
-  //     })
-  //     resolve()
-  //   })
-  // })
+   const loadGalleries = new Promise((resolve, reject) => {
+     graphql(`
+       {
+         allContentfulGallery {
+           edges {
+             node {
+               slug
+             }
+           }
+         }
+       }
+     `).then(result => {
+       result.data.allContentfulGallery.edges.map(({ node }) => {
+         createPage({
+           path: `${node.slug}/`,
+           component: path.resolve(`./src/templates/gallery.js`),
+           context: {
+             slug: node.slug,
+           },
+         })
+       })
+       resolve()
+     })
+   })
 
   // const loadTags = new Promise((resolve, reject) => {
   //   graphql(`
@@ -139,5 +140,5 @@ exports.createPages = ({ graphql, actions }) => {
   //   })
   // })
 
-  return Promise.all([loadBlog, loadProducts])
+  return Promise.all([loadBlog, loadProducts, loadGalleries])
 }

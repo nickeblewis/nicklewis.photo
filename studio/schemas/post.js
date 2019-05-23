@@ -77,6 +77,13 @@ export default {
         'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
+      name: 'excerpt',
+      type: 'excerptPortableText',
+      title: 'Excerpt',
+      description:
+        'This ends up on summary pages, on Google, when people share your post in social media.'
+    },
+    {
       name: "categories",
       title: "Categories",
       type: "array",

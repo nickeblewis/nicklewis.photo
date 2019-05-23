@@ -76,10 +76,10 @@ const BlogList = props => {
   const dateSegment = format(props.date, 'YYYY/MM')
   
   return (
-    <ProjectLink key={props.id} to={`/blogit/${dateSegment}/${props.slug}/`}>
-      {/*<Cover>
+    <ProjectLink key={props.id} to={`/blog/${dateSegment}/${props.slug}/`}>
+      <Cover>
         <Img fluid={props.image.asset} />
-      </Cover>*/}
+      </Cover>
       <Title>{props.title}</Title>
       <Date>
         Published: {props.date} | Reading time: {props.time} min

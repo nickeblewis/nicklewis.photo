@@ -7,25 +7,51 @@ import BlogBody from '../components/Blog/BlogBody'
 import BlogList from '../components/Blog/BlogList'
 //import SEO from '../components/SEO'
 
-const Blog = ({ data, location }) => {
-  const posts = data.allContentfulPost.edges
-  const blog = data.contentfulBlog
+export const query = graphql`
+
+  query ArchivePageQuery {
+    posts: allSanityPost(limit: 12, sort: {fields: [publishedAt], order: DESC}) {
+      edges {
+        node {
+          id
+          publishedAt
+          mainImage {
+              alt
+              caption
+              asset {
+                  _ref
+              }
+          }
+          title
+          _rawBlurb
+          slug {
+            current
+          }
+        }
+      }
+    }
+  }
+`
+const BlogIndexPage = ({ data, location }) => {
+  // const posts = data.allContentfulPost.edges
+  const blogPosts = data.posts.edges
+  //const blog = data.contentfulBlog
 
   return (
     <Layout location={location}>
       <WrapperGrid>
-        <BlogHero image={blog.heroImage} />
+        {/*<BlogHero image={blog.heroImage} />*/}
         <BlogBody>
           
-          {posts.map(({ node: post }) => (
+          {blogPosts.map(({ node: post }) => (
             <BlogList
               key={post.id}
               slug={post.slug.current}
               image={post.mainImage}
               title={post.title}
-              date={post._createdAt}
+              date={post.publishedAt}
               time={5}
-              excerpt={post.blurb}
+              excerpt={post._rawBlurb}
             />
           ))}
         </BlogBody>
@@ -34,45 +60,6 @@ const Blog = ({ data, location }) => {
   )
 }
 
-export const query = graphql`
-  query {
-    allContentfulPost(
-      limit: 1000
-      sort: { fields: [publishDate], order: DESC }
-    ) {
-      edges {
-        node {
-          title
-          id
-          slug
-          publishDate(formatString: "DD MMM YYYY")
-          heroImage {
-            title
-            fluid(maxWidth: 1000) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          body {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 240)
-              timeToRead
-            }
-          }
-        }
-      }
-    }
-    contentfulBlog {
-      title
-      id
-      heroImage {
-        title
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
-    }
-  }
-`
 
-export default Blog
+
+export default BlogIndexPage

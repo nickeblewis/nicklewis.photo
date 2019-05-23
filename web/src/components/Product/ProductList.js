@@ -61,8 +61,15 @@ const Excerpt = styled.p`
   text-transform: none;
 `
 const ProductList = props => {
+  console.log(props)
+  let myLink = ''
+  if(props.slug.current) {
+    myLink = props.slug.current
+  } else {
+    myLink = props.slug
+  }
   return (
-    <ProjectLink key={props.id} to={`/gallery/${props.id}/`}>
+    <ProjectLink key={props.id} to={`/${myLink}/`}>
       <Cover>
         {props.image.asset &&
           <Img fluid={props.image.asset.fluid} />

@@ -111,24 +111,24 @@ const Navigation = () => {
           <ul>
             <li>
               <h2>
-                <Link to="/">Portfolios</Link>
+                <Link to="/">Home</Link>
               </h2>
             </li>
-            <li>
+            {/*<li>
               <h2>
                 <Link to="/blog">Blog</Link>
               </h2>
-            </li>
+            </li>*/}
             <li>
               <h2>
                 <Link to="/contact">Contact</Link>
               </h2>
             </li>
-            <li>
+            {/*<li>
               <h2>
                 <Link to="/shop">Shop</Link>
               </h2>
-            </li>
+            </li>*/}
 
             <li>
               <Social />

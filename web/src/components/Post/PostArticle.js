@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'react-emotion'
 import BlockContent from '@sanity/block-content-to-react'
 import { Link } from 'gatsby'
-import { Figure } from './Figure'
+//import { Figure } from './Figure'
 require('../../styles/prism.css')
-const serializers = {
-  types: {
-    authorReference: ({node}) => <span>{node.author.name}</span>,
-    mainImage: Figure
-  }
-}
+// const serializers = {
+//   types: {
+//     authorReference: ({node}) => <span>{node.author.name}</span>,
+//     mainImage: Figure
+//   }
+// }
 
 
 

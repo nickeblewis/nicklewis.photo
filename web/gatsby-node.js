@@ -89,30 +89,30 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-   const loadGalleries = new Promise((resolve, reject) => {
-     graphql(`
-       {
-         allContentfulGallery {
-           edges {
-             node {
-               slug
-             }
-           }
-         }
-       }
-     `).then(result => {
-       result.data.allContentfulGallery.edges.map(({ node }) => {
-         createPage({
-           path: `${node.slug}/`,
-           component: path.resolve(`./src/templates/gallery.js`),
-           context: {
-             slug: node.slug,
-           },
-         })
-       })
-       resolve()
-     })
-   })
+  //  const loadGalleries = new Promise((resolve, reject) => {
+  //    graphql(`
+  //      {
+  //        allContentfulGallery {
+  //          edges {
+  //            node {
+  //              slug
+  //            }
+  //          }
+  //        }
+  //      }
+  //    `).then(result => {
+  //      result.data.allContentfulGallery.edges.map(({ node }) => {
+  //        createPage({
+  //          path: `${node.slug}/`,
+  //          component: path.resolve(`./src/templates/gallery.js`),
+  //          context: {
+  //            slug: node.slug,
+  //          },
+  //        })
+  //      })
+  //      resolve()
+  //    })
+  //  })
 
   // const loadTags = new Promise((resolve, reject) => {
   //   graphql(`
@@ -139,5 +139,5 @@ exports.createPages = ({ graphql, actions }) => {
   //   })
   // })
 
-  return Promise.all([loadBlog, loadProducts, loadGalleries])
+  return Promise.all([loadBlog, loadProducts])
 }

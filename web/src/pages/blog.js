@@ -23,7 +23,7 @@ export const query = graphql`
               }
           }
           title
-          _rawBlurb
+          _rawExcerpt
           slug {
             current
           }
@@ -43,7 +43,7 @@ const BlogIndexPage = ({ data, location }) => {
         {/*<BlogHero image={blog.heroImage} />*/}
         <BlogBody>
           
-          {blogPosts.map(({ node: post }) => (
+          {/* {blogPosts.map(({ node: post }) => (
             <BlogList
               key={post.id}
               slug={post.slug.current}
@@ -51,9 +51,9 @@ const BlogIndexPage = ({ data, location }) => {
               title={post.title}
               date={post.publishedAt}
               time={5}
-              excerpt={post._rawBlurb}
+              excerpt={post._rawExcerpt}
             />
-          ))}
+          ))} */}
         </BlogBody>
       </WrapperGrid>
     </Layout>

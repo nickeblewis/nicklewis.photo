@@ -24,18 +24,18 @@ console.log(
                     / 　 づ`
 )
 const Index = ({ data, location }) => {
-  const home = data.contentfulHome
-  const galleries = data.allContentfulGallery.edges
+  //const home = data.contentfulHome
+  //const galleries = data.allContentfulGallery.edges
   const products = data.allSanityGallery.edges
   return (
     <Layout location={location}>
       <SEO />
       <WrapperGrid>
-        <PortfolioHero image={home.heroImage} />
+        {/*<PortfolioHero image={home.heroImage} />*/}
         <PortfolioBody>
-          <PortfolioBodyTop body={home.body} />
+          {/*<PortfolioBodyTop body={home.body} />*/}
           <PortfolioBodyBottom>
-            {galleries.map(({ node: gallery }) => (
+            {/* {galleries.map(({ node: gallery }) => (
               <PortfolioList
                 key={gallery.id}
                 slug={gallery.slug}
@@ -44,7 +44,7 @@ const Index = ({ data, location }) => {
                 date={gallery.publishDate}
                 excerpt={gallery.body}
               />
-            ))}
+            ))} */}
             {products.map(({ node: prod }) => (
               <ProductList
                 key={prod.id}
@@ -71,75 +71,19 @@ export const query = graphql`
           id
           title
           _createdAt
-          blurb
-          _rawBody
+          blurb   
+          mainImage {
+            ...SanityImage
+            alt
+          }                 
           slug {
             current
           }
-          heroImage {
-            asset {
-              id
-              fluid {
-                base64
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-              }
-            }
-          }
-          images {
-            asset {
-              fluid(maxWidth: 700) {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
+          
+          
         }
       }
-    }
-    allContentfulGallery(
-      filter: { public: { ne: false } }
-      limit: 1000
-      sort: { fields: [publishDate], order: DESC }
-    ) {
-      edges {
-        node {
-          title
-          id
-          slug
-          publishDate(formatString: "DD MMM YYYY")
-          heroImage {
-            title
-            fluid(maxWidth: 1000) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          body {
-            childMarkdownRemark {
-              excerpt(pruneLength: 240)
-            }
-          }
-        }
-      }
-    }
-    contentfulHome {
-      title
-      id
-      heroImage {
-        title
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
+    }    
   }
 `
 

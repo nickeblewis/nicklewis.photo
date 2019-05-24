@@ -6,8 +6,8 @@ try {
 } catch (e) {
   contentfulConfig = {
     production: {
-      spaceId: process.env.SPACE_ID,
-      accessToken: process.env.ACCESS_TOKEN,
+      spaceId: '5kdxu849wo7r',
+      accessToken: 'e051716c3b7dba17d1b3cb09b415fb2b54e8e42d56ea40dac6f5c6e42739350a',
     },
   }
 } finally {
@@ -72,13 +72,14 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-source-contentful',
-      options:
-        process.env.NODE_ENV === 'development'
-          ? contentfulConfig.development
-          : contentfulConfig.production,
-    },
+    // {
+    //   resolve: 'gatsby-source-contentful',
+    //   options:
+    //     {
+    //       spaceId: '5kdxu849wo7r',
+    //       accessToken: 'e051716c3b7dba17d1b3cb09b415fb2b54e8e42d56ea40dac6f5c6e42739350a'
+    //     }
+    // },
     {
       resolve: 'gatsby-source-sanity',
       options: {

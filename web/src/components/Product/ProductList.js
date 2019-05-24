@@ -66,12 +66,12 @@ const ProductList = props => {
   
   return (
     <ProjectLink key={props.id} to={`/${props.slug.current || ''}/`}>
-      <Cover>
+      {/* <Cover>
         {props.image.asset &&
           <Img fluid={props.image.asset.fluid} />
         }
         
-      </Cover>
+      </Cover> */}
       <Title>{props.title}</Title>
       <Excerpt
         dangerouslySetInnerHTML={{

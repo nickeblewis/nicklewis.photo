@@ -25,36 +25,36 @@ const GalleryTemplate = ({ data, location }) => {
   )
 }
 
-export const query = graphql`
-  query($slug: String!) {
-    contentfulGallery(slug: { eq: $slug }) {
-      title
-      id
-      slug
-      publishDate(formatString: "MMMM DD, YYYY")
-      publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      heroImage {
-        ogimg: resize(width: 900) {
-          src
-          width
-          height
-        }
-      }
-      tags {
-        title
-        id
-        slug
-      }
-      images {
-        title
-        file {
-          url
-        }
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query($slug: String!) {
+//     contentfulGallery(slug: { eq: $slug }) {
+//       title
+//       id
+//       slug
+//       publishDate(formatString: "MMMM DD, YYYY")
+//       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
+//       heroImage {
+//         ogimg: resize(width: 900) {
+//           src
+//           width
+//           height
+//         }
+//       }
+//       tags {
+//         title
+//         id
+//         slug
+//       }
+//       images {
+//         title
+//         file {
+//           url
+//         }
+//         fluid(maxWidth: 1000) {
+//           ...GatsbyContentfulFluid_withWebp
+//         }
+//       }
+//     }
+//   }
+// `
 export default GalleryTemplate

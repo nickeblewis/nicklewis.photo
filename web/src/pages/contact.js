@@ -24,9 +24,9 @@ const Contact = ({ data, location }) => {
       </Helmet>
       
       <WrapperGrid>
-        <ContactHero image={info.heroImage} />
+        {/*<ContactHero image={info.heroImage} />*/}
         <ContactBody>
-          <ContactBodyTop body={info.body} />
+          {/*<ContactBodyTop body={info.body} />*/}
           <ContactBodyBottom>
             <ContactForm />
           </ContactBodyBottom>
@@ -36,24 +36,24 @@ const Contact = ({ data, location }) => {
   )
 }
 
-export const query = graphql`
-  query {
-    contentfulAbout {
-      title
-      id
-      heroImage {
-        title
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query {
+//     contentfulAbout {
+//       title
+//       id
+//       heroImage {
+//         title
+//         fluid(maxWidth: 1000) {
+//           ...GatsbyContentfulFluid_withWebp
+//         }
+//       }
+//       body {
+//         childMarkdownRemark {
+//           html
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Contact

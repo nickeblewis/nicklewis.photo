@@ -56,61 +56,61 @@ const PostTemplate = ({ data, location }) => {
   )
 }
 
-export const query = graphql`
-  query($slug: String!) {
-    contentfulPost(slug: { eq: $slug }) {
-      title
-      id
-      slug
-      publishDate(formatString: "DD MMM YYYY")
-      publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      tags {
-        title
-        id
-        slug
-      }
-      gallery {
-        title
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
-      heroImage {
-        title
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-        ogimg: resize(width: 900) {
-          src
-          width
-          height
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-          excerpt(pruneLength: 320)
-          timeToRead
-        }
-      }
-    }
-    allContentfulPost(
-      limit: 1000
-      sort: { fields: [publishDate], order: DESC }
-    ) {
-      edges {
-        node {
-          id
-        }
-        previous {
-          slug
-        }
-        next {
-          slug
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query($slug: String!) {
+//     contentfulPost(slug: { eq: $slug }) {
+//       title
+//       id
+//       slug
+//       publishDate(formatString: "DD MMM YYYY")
+//       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
+//       tags {
+//         title
+//         id
+//         slug
+//       }
+//       gallery {
+//         title
+//         fluid(maxWidth: 1000) {
+//           ...GatsbyContentfulFluid_withWebp
+//         }
+//       }
+//       heroImage {
+//         title
+//         fluid(maxWidth: 1000) {
+//           ...GatsbyContentfulFluid_withWebp
+//         }
+//         ogimg: resize(width: 900) {
+//           src
+//           width
+//           height
+//         }
+//       }
+//       body {
+//         childMarkdownRemark {
+//           html
+//           excerpt(pruneLength: 320)
+//           timeToRead
+//         }
+//       }
+//     }
+//     allContentfulPost(
+//       limit: 1000
+//       sort: { fields: [publishDate], order: DESC }
+//     ) {
+//       edges {
+//         node {
+//           id
+//         }
+//         previous {
+//           slug
+//         }
+//         next {
+//           slug
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default PostTemplate

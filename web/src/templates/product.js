@@ -34,13 +34,7 @@ export const query = graphql`
         current
       }
       tags
-      images {
-        asset {
-          fluid(maxWidth: 700) {
-            ...GatsbySanityImageFluid
-          }
-        }
-      }
+      
     }
   }
 `

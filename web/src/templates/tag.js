@@ -55,26 +55,26 @@ const TagTemplate = ({ data, location }) => {
   )
 }
 
-export const query = graphql`
-  query($slug: String!) {
-    contentfulTag(slug: { eq: $slug }) {
-      title
-      id
-      slug
-      gallery {
-        id
-        title
-        slug
-        publishDate(formatString: "MMMM DD, YYYY")
-      }
-      post {
-        id
-        title
-        slug
-        publishDate(formatString: "MMMM DD, YYYY")
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query($slug: String!) {
+//     contentfulTag(slug: { eq: $slug }) {
+//       title
+//       id
+//       slug
+//       gallery {
+//         id
+//         title
+//         slug
+//         publishDate(formatString: "MMMM DD, YYYY")
+//       }
+//       post {
+//         id
+//         title
+//         slug
+//         publishDate(formatString: "MMMM DD, YYYY")
+//       }
+//     }
+//   }
+// `
 
 export default TagTemplate

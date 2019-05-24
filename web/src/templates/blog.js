@@ -42,7 +42,7 @@ const BlogTemplate = ({ data, location }) => {
         time={5}
       /> 
       <WrapperPost>
-        <PostHero image={heroImage} />
+        {/* <PostHero image={heroImage} /> */}
         <PostArticle
           body={_rawBody}
           previous={postIndex.previous}
@@ -66,15 +66,7 @@ export const query = graphql`
         _id
         title
       }
-      heroImage {
-        asset {
-          fluid(maxWidth: 1240) {
-            ...GatsbySanityImageFluid
-          }
-        }
-        
-        
-      }
+      
 
       slug {
         current

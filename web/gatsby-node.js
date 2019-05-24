@@ -76,7 +76,6 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      //console.log('gn', result)
       result.data.allSanityGallery.edges.map(({ node }) => {        
         createPage({
           path: `/${node.slug.current}/`,

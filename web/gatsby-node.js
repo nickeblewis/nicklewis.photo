@@ -31,35 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
   //   })
   // })
 
-  const loadBlog = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allSanityPost {
-          edges {
-            node {
-              id
-              publishedAt
-              slug {
-                current
-              }
-            }
-          }
-        }
-      }
-    `).then(result => {      
-      result.data.allSanityPost.edges.map(({ node }) => {
-        const dateSegment = format(node.publishedAt, 'YYYY/MM')
-        createPage({
-          path: `blog/${dateSegment}/${node.slug.current}/`,
-          component: path.resolve(`./src/templates/blog.js`),
-          context: {
-            id: node.id,
-          },
-        })
-      })
-      resolve()
-    })
-  })
+  
 
   const loadProducts = new Promise((resolve, reject) => {
     graphql(`
@@ -139,5 +111,5 @@ exports.createPages = ({ graphql, actions }) => {
   //   })
   // })
 
-  return Promise.all([loadBlog, loadProducts, loadGalleries])
+  return Promise.all([loadProducts, loadGalleries])
 }

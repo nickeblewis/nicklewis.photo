@@ -23,7 +23,7 @@ export const query = graphql`
               }
           }
           title
-          _rawBlurb
+          _rawExcerpt
           slug {
             current
           }

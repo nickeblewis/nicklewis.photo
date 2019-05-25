@@ -61,11 +61,8 @@ const Excerpt = styled.p`
   text-transform: none;
 `
 const ProductList = props => {
-  console.log(props)
-  let myLink = ''
-  
   return (
-    <ProjectLink key={props.id} to={`/${props.slug.current || ''}/`}>
+    <ProjectLink key={props.id} to={`/${props.slug}/`}>
       <Cover>
         {props.image.asset &&
           <Img fluid={props.image.asset.fluid} />

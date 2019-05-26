@@ -66,7 +66,7 @@ const Index = ({ data, location }) => {
 export const query = graphql`
   query {
     allSanityGallery(
-      sort: { fields: [_createdAt], order: ASC }
+      sort: { fields: [_createdAt], order: DESC }
     ) {
       edges {
         node {

@@ -35,16 +35,6 @@ const Index = ({ data, location }) => {
         <PortfolioBody>
           <PortfolioBodyTop body={home.body} />
           <PortfolioBodyBottom>
-            {galleries.map(({ node: gallery }) => (
-              <PortfolioList
-                key={gallery.id}
-                slug={gallery.slug}
-                image={gallery.heroImage}
-                title={gallery.title}
-                date={gallery.publishDate}
-                excerpt={gallery.body}
-              />
-            ))}
             {products.map(({ node: prod }) => (
               <ProductList
                 key={prod.id}
@@ -56,6 +46,16 @@ const Index = ({ data, location }) => {
                 excerpt={prod.blurb}
               />
             ))}
+            {galleries.map(({ node: gallery }) => (
+              <PortfolioList
+                key={gallery.id}
+                slug={gallery.slug}
+                image={gallery.heroImage}
+                title={gallery.title}
+                date={gallery.publishDate}
+                excerpt={gallery.body}
+              />
+            ))}
           </PortfolioBodyBottom>
         </PortfolioBody>
       </WrapperGrid>
@@ -65,7 +65,9 @@ const Index = ({ data, location }) => {
 
 export const query = graphql`
   query {
-    allSanityGallery {
+    allSanityGallery(
+      sort: { fields: [_createdAt], order: ASC }
+    ) {
       edges {
         node {
           id

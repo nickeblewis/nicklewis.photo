@@ -18,6 +18,7 @@ const GalleryTemplate = ({ data, location }) => {
       </Helmet>
       
       <GalleryHead title={title} tags={tags} />
+      <p>All photos are copyright of Nick Lewis Photography, please drop me a line at nickeblewis@gmail.com if you have any enquiries. </p>
       <WrapperGallery>
         <GalleryComposition photos={images} />
       </WrapperGallery>

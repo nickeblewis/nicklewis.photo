@@ -9,7 +9,7 @@ import GalleryHead from '../components/Gallery/GalleryHead'
 //import SEO from '../components/SEO'
 
 const GalleryTemplate = ({ data, location }) => {
-  const { title, slug, tags, images } = data.contentfulGallery
+  const { title, slug, tags, images, blurb } = data.contentfulGallery
   const galleryNode = data.contentfulGallery
   return (
     <Layout location={location}>

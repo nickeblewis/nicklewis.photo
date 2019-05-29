@@ -9,12 +9,15 @@ import GalleryHead from '../components/Gallery/GalleryHead'
 //import SEO from '../components/SEO'
 
 const ProductTemplate = ({ data, location }) => {
-  const { title, slug, tags, images } = data.sanityGallery
+  const { title, slug, tags, images, blurb } = data.sanityGallery
   const galleryNode = data.contentfulGallery
+  console.log(tags.toString())
   return (
     <Layout location={location}>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
+        <meta name="description" content={`${blurb}`} />
+        <meta name="keywords" content={tags.toString()} />
       </Helmet>
 
       <GalleryHead title={title} tags={tags} />
@@ -33,6 +36,7 @@ export const query = graphql`
       slug {
         current
       }
+      blurb
       tags
       images {
         asset {

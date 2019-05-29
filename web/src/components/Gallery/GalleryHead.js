@@ -79,13 +79,7 @@ const GalleryHead = props => {
   return (
     <Wrapper>
       <Title>{props.title}</Title>
-      <List>
-        {props.tags.map(tag => (
-          <Tag key={tag.id}>
-            <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
-          </Tag>
-        ))}
-      </List>
+      
     </Wrapper>
     
   )

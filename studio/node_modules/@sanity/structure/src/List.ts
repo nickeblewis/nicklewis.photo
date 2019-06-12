@@ -1,5 +1,5 @@
 import {find} from 'lodash'
-import {SerializePath, SerializeOptions} from './StructureNodes'
+import {SerializePath, SerializeOptions, Divider} from './StructureNodes'
 import {ChildResolverOptions, ChildResolver} from './ChildResolver'
 import {SerializeError, HELP_URL} from './SerializeError'
 import {ListItem, ListItemBuilder} from './ListItem'
@@ -11,12 +11,26 @@ import {
 } from './GenericList'
 
 const getArgType = (thing: ListItem) => {
+  if (thing instanceof ListBuilder) {
+    return 'ListBuilder'
+  }
+
+  if (isPromise<ListItem>(thing)) {
+    return 'Promise'
+  }
+
   return Array.isArray(thing) ? 'array' : typeof thing
+}
+
+const isListItem = (item: ListItem | Divider): item is ListItem => {
+  return item.type === 'listItem'
 }
 
 const resolveChildForItem: ChildResolver = (itemId: string, options: ChildResolverOptions) => {
   const parentItem = options.parent as List
-  const target = (parentItem.items.find(item => item.id === itemId) || {child: undefined}).child
+  const items = parentItem.items.filter(isListItem)
+  const target = (items.find(item => item.id === itemId) || {child: undefined}).child
+
   if (!target || typeof target !== 'function') {
     return target
   }
@@ -25,15 +39,19 @@ const resolveChildForItem: ChildResolver = (itemId: string, options: ChildResolv
 }
 
 function maybeSerializeListItem(
-  item: ListItem | ListItemBuilder,
+  item: ListItem | ListItemBuilder | Divider,
   index: number,
   path: SerializePath
-): ListItem {
+): ListItem | Divider {
   if (item instanceof ListItemBuilder) {
     return item.serialize({path, index})
   }
 
   const listItem = item as ListItem
+  if (listItem && listItem.type === 'divider') {
+    return item as Divider
+  }
+
   if (!listItem || listItem.type !== 'listItem') {
     const gotWhat = (listItem && listItem.type) || getArgType(listItem)
     const helpText = gotWhat === 'array' ? ' - did you forget to spread (...moreItems)?' : ''
@@ -47,16 +65,20 @@ function maybeSerializeListItem(
   return item
 }
 
+function isPromise<T>(thing: any): thing is Promise<T> {
+  return thing && typeof thing.then === 'function'
+}
+
 export interface List extends GenericList {
-  items: ListItem[]
+  items: (ListItem | Divider)[]
 }
 
 export interface ListInput extends GenericListInput {
-  items?: (ListItem | ListItemBuilder)[]
+  items?: (ListItem | ListItemBuilder | Divider)[]
 }
 
 export interface BuildableList extends BuildableGenericList {
-  items?: (ListItem | ListItemBuilder)[]
+  items?: (ListItem | ListItemBuilder | Divider)[]
 }
 
 export class ListBuilder extends GenericListBuilder<BuildableList, ListBuilder> {
@@ -67,7 +89,7 @@ export class ListBuilder extends GenericListBuilder<BuildableList, ListBuilder> 
     this.spec = spec ? spec : {}
   }
 
-  items(items: (ListItemBuilder | ListItem)[]): ListBuilder {
+  items(items: (ListItemBuilder | ListItem | Divider)[]): ListBuilder {
     return this.clone({items})
   }
 

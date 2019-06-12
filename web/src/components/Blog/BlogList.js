@@ -89,7 +89,7 @@ const BlogList = props => {
       </Cover>
       <Title>{props.title}</Title>
       <Date>
-        Published: {format(props.date, 'MMMM Do YYYY')} | Reading time: {props.time} min
+        Published: {format(props.date, 'MMMM Do YYYY')}
       </Date>
       <Excerpt>
         <PortableText blocks={props.excerpt}/>

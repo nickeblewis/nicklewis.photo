@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
 import { Link } from 'gatsby'
-import Headroom from 'react-headroom'
+import { format } from 'date-fns'
 
 const Wrapper = styled.section`
   background: var(--color-secondary);
@@ -91,15 +91,15 @@ const ArticleHead = props => {
         </BackButton>
         <Title>{props.title}</Title>
         <Date>
-          Published: {props.date} <br /> Reading time: {props.time} min
+          Published: {format(props.date, 'MMMM Do YYYY')}
         </Date>
-        <List>
+        {/*<List>
           {props.tags.map(tag => (
             <Tag key={tag.id}>
               <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
             </Tag>
           ))}
-        </List>
+          </List>*/}
       </Wrapper>
     
   )

@@ -144,7 +144,6 @@ const NextLink = styled(Link)`
 `
 
 const Article = props => {
-  console.log(props)
   return (
     <Wrapper>
       {/*props.body && <BlockContent blocks={props.body || []} serializers={serializers} />*/}

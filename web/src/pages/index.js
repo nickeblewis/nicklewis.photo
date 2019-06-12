@@ -28,7 +28,7 @@ const Index = ({ data, location }) => {
   const galleries = data.allContentfulGallery.edges
   const products = data.allSanityGallery.edges
   const site = data.site
-  console.log('gal',products[0].node)
+  
   return (
     <Layout location={location}>
       <SEO />

@@ -82,7 +82,6 @@ const BlogList = props => {
     ...clientConfig.sanity
   )
   const dateSegment = format(props.date, 'YYYY/MM')
-  console.log(props)
   return (
     <ProjectLink key={props.id} to={`/blog/${dateSegment}/${props.slug}/`}>
       <Cover>

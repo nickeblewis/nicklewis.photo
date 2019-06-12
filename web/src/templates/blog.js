@@ -30,8 +30,6 @@ const BlogTemplate = ({ data, location }) => {
     ({ node: post }) => post.id === id
   )
 
-  console.log('rabbit', data.sanityPost)
-
   return (
     <Layout location={location}>
       <Helmet>

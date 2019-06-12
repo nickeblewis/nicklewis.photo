@@ -7,7 +7,6 @@ class GalleryComposition extends Component {
   constructor(props) {
     super(props)
 
-    console.log('source', props)
     if (props.source === 'sanity') {
       this.state = {
         shareOpen: false,

@@ -37,7 +37,6 @@ const BlogIndexPage = ({ data, location }) => {
   // const posts = data.allContentfulPost.edges
   const blogPosts = data.posts.edges
   //const blog = data.contentfulBlog
-console.log(blogPosts[0].node)
   return (
     <Layout location={location}>
       <WrapperGrid>

@@ -11,7 +11,7 @@ import GalleryHead from '../components/Gallery/GalleryHead'
 const ProductTemplate = ({ data, location }) => {
   const { title, slug, tags, images, blurb } = data.sanityGallery
   const galleryNode = data.contentfulGallery
-  console.log(tags.toString())
+
   return (
     <Layout location={location}>
       <Helmet>

@@ -1,3 +1,4 @@
+// TODO: match this up with my own existing author type, just add those that aren't here
 export default {
   name: 'category',
   type: 'document',

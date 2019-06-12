@@ -112,7 +112,7 @@ const PortfolioBodyTop = props => {
     <Wrapper>
       <Body
         dangerouslySetInnerHTML={{
-          __html: props.body.childMarkdownRemark.html,
+          __html: props.body,
         }}
       />
       <Social />

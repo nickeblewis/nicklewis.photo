@@ -114,6 +114,11 @@ const Navigation = () => {
                 <Link to="/">Home</Link>
               </h2>
             </li>
+            <li>
+              <h2>
+                <Link to="/blog">Blog</Link>
+              </h2>
+            </li>
             {/*<li>
               <h2>
                 <Link to="/blog">Blog</Link>

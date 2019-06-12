@@ -15,6 +15,11 @@ export default {
       description: 'Describe your blog for search engines and social media.'
     },
     {
+      name: 'homeIntro',
+      type: 'text',
+      title: 'Home Intro'
+    },
+    {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',

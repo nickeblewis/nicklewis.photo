@@ -1,16 +1,10 @@
 import React from 'react'
 import styled from 'react-emotion'
 import BlockContent from '@sanity/block-content-to-react'
+import PortableText from '../block-content/portableText'
 import { Link } from 'gatsby'
-import { Figure } from './Figure'
+import Figure from './Figure' 
 require('../../styles/prism.css')
-const serializers = {
-  types: {
-    authorReference: ({node}) => <span>{node.author.name}</span>,
-    mainImage: Figure
-  }
-}
-
 
 
 const Wrapper = styled.div`
@@ -153,9 +147,12 @@ const Article = props => {
   console.log(props)
   return (
     <Wrapper>
-      {/*props.body && <BlockContent blocks={props.body} serializers={serializers} />*/}
+      {/*props.body && <BlockContent blocks={props.body || []} serializers={serializers} />*/}
 
-
+<Body>
+      {props.body && <PortableText blocks={props.body || []} />}
+      </Body>
+      
 
       {/* <Body
         dangerouslySetInnerHTML={{

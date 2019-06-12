@@ -20,6 +20,7 @@ export const query = graphql`
               caption
               asset {
                   _ref
+                  _id
               }
           }
           title
@@ -36,13 +37,12 @@ const BlogIndexPage = ({ data, location }) => {
   // const posts = data.allContentfulPost.edges
   const blogPosts = data.posts.edges
   //const blog = data.contentfulBlog
-
+console.log(blogPosts[0].node)
   return (
     <Layout location={location}>
       <WrapperGrid>
-        {/*<BlogHero image={blog.heroImage} />*/}
+        <BlogHero image={blogPosts[0].node.mainImage} />
         <BlogBody>
-          
           {blogPosts.map(({ node: post }) => (
             <BlogList
               key={post.id}
@@ -51,7 +51,7 @@ const BlogIndexPage = ({ data, location }) => {
               title={post.title}
               date={post.publishedAt}
               time={5}
-              excerpt={post._rawBlurb}
+              excerpt={post._rawExcerpt}
             />
           ))}
         </BlogBody>

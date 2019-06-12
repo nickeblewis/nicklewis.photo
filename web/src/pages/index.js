@@ -24,16 +24,18 @@ console.log(
                     / 　 づ`
 )
 const Index = ({ data, location }) => {
-  const home = data.contentfulHome
+  //const home = data.contentfulHome
   const galleries = data.allContentfulGallery.edges
   const products = data.allSanityGallery.edges
+  const site = data.site
+  console.log('gal',products[0].node)
   return (
     <Layout location={location}>
       <SEO />
       <WrapperGrid>
-        <PortfolioHero image={home.heroImage} />
+        <PortfolioHero image={products[0].node.heroImage.asset} />
         <PortfolioBody>
-          <PortfolioBodyTop body={home.body} />
+          <PortfolioBodyTop body={site.homeIntro} />
           <PortfolioBodyBottom>
             {products.map(({ node: prod }) => (
               <ProductList
@@ -65,6 +67,12 @@ const Index = ({ data, location }) => {
 
 export const query = graphql`
   query {
+    site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
+      title
+      description
+      keywords
+      homeIntro
+    }
     allSanityGallery(
       sort: { fields: [_createdAt], order: DESC }
     ) {
@@ -80,6 +88,8 @@ export const query = graphql`
           }
           heroImage {
             asset {
+              _id
+              _ref
               id
               fluid {
                 base64

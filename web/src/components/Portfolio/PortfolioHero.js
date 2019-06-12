@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'react-emotion'
 import Img from 'gatsby-image'
+import { getFluidGatsbyImage, getFixedGatsbyImage } from 'gatsby-source-sanity'
+import clientConfig from '../../../client-config'
 
 const Wrapper = styled.div`
   display: none;
@@ -30,10 +32,15 @@ const Hero = styled.div`
 `
 
 const PortfolioHero = props => {
+  const fluidProps = getFluidGatsbyImage(
+    props.image,
+    { maxWidth: 675 },
+    ...clientConfig.sanity
+  )
   return (
     <Wrapper>
       <Hero>
-        <Img fluid={props.image.fluid} />
+        <Img fluid={fluidProps} />
       </Hero>
     </Wrapper>
   )

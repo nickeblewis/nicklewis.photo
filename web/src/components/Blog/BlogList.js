@@ -3,6 +3,9 @@ import styled from 'react-emotion'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { format } from 'date-fns'
+import { getFluidGatsbyImage, getFixedGatsbyImage } from 'gatsby-source-sanity'
+import clientConfig from '../../../client-config'
+import PortableText from '../block-content/portableText'
 
 const ProjectLink = styled(Link)`
   text-decoration: none;
@@ -73,20 +76,28 @@ const Excerpt = styled.p`
   }
 `
 const BlogList = props => {
+  const fluidProps = getFluidGatsbyImage(
+    props.image.asset._id,
+    { maxWidth: 675 },
+    ...clientConfig.sanity
+  )
   const dateSegment = format(props.date, 'YYYY/MM')
-  
+  console.log(props)
   return (
     <ProjectLink key={props.id} to={`/blog/${dateSegment}/${props.slug}/`}>
       <Cover>
-        <Img fluid={props.image.asset} />
+        <Img fluid={fluidProps} />
       </Cover>
       <Title>{props.title}</Title>
       <Date>
-        Published: {props.date} | Reading time: {props.time} min
+        Published: {format(props.date, 'MMMM Do YYYY')} | Reading time: {props.time} min
       </Date>
-      
+      <Excerpt>
+        <PortableText blocks={props.excerpt}/>
+      </Excerpt>
     </ProjectLink>
   )
 }
 
 export default BlogList
+

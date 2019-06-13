@@ -82,7 +82,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: '85cmsqr4',
+        projectId: 'zoijij3p',
         dataset: 'production',
         // To enable preview of drafts, copy .env-example into .env,
         // and add a token with read permissions
@@ -125,7 +125,7 @@ module.exports = {
         setup(ref) {
           const ret = ref.query.site.siteMetadata.rssMetadata
           ret.allMarkdownRemark = ref.query.allMarkdownRemark
-          ret.generator = 'Nick Lewis Photography'
+          ret.generator = 'Nick Lewis Digital'
           return ret
         },
         query: `

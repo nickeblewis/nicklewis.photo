@@ -1,5 +1,5 @@
 module.exports = {
-  siteTitle: 'NICK LEWIS PHOTOGRAPHY',
+  siteTitle: 'NICK LEWIS DIGITAL',
   siteTitleAlt: 'NLP', // This allows an alternative site title for SEO schema.
   publisher: 'Nick Lewis', // Organization name used for SEO schema
   siteDescription:

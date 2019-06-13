@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "NLP"
+    "name": "Nick Lewis Digital"
   },
   "api": {
-    "projectId": "85cmsqr4",
+    "projectId": "zoijij3p",
     "dataset": "production"
   },
   "plugins": [

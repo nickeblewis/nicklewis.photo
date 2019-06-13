@@ -48,7 +48,16 @@ const Index = ({ data, location }) => {
                 excerpt={prod.blurb}
               />
             ))}
-           
+            {galleries.map(({ node: gallery }) => (
+              <PortfolioList
+                key={gallery.id}
+                slug={gallery.slug}
+                image={gallery.heroImage}
+                title={gallery.title}
+                date={gallery.publishDate}
+                excerpt={gallery.body}
+              />
+            ))}
           </PortfolioBodyBottom>
         </PortfolioBody>
       </WrapperGrid>

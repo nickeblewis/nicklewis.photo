@@ -76,10 +76,12 @@ const Excerpt = styled.p`
   }
 `
 const BlogList = props => {
+  const sanityConfig = {projectId: '85cmsqr4', dataset: 'production'}
+
   const fluidProps = getFluidGatsbyImage(
     props.image.asset._id,
     { maxWidth: 675 },
-    ...clientConfig.sanity
+    sanityConfig
   )
   const dateSegment = format(props.date, 'YYYY/MM')
   return (

@@ -32,10 +32,12 @@ const Hero = styled.div`
 `
 
 const PortfolioHero = props => {
+  const sanityConfig = {projectId: '85cmsqr4', dataset: 'production'}
+
   const fluidProps = getFluidGatsbyImage(
     props.image,
     { maxWidth: 675 },
-    ...clientConfig.sanity
+    sanityConfig
   )
   return (
     <Wrapper>

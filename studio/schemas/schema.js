@@ -9,6 +9,10 @@ import author from './documents/author'
 import category from './documents/category'
 import post from './documents/post'
 import gallery from './documents/gallery'
+import product from './documents/product'
+import vendor from './documents/vendor'
+import blockContent from './documents/blockContent'
+import productVariant from './documents/productVariant'
 import siteSettings from './documents/siteSettings'
 
 // Object types
@@ -32,8 +36,12 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     siteSettings,
+    blockContent,
     post,
     gallery,
+    product,
+    productVariant,
+    vendor,
     category,
     author,
     mainImage,

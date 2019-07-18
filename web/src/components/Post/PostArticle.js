@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
-import BlockContent from '@sanity/block-content-to-react'
 import PortableText from '../block-content/portableText'
 import { Link } from 'gatsby'
-import Figure from './Figure' 
 require('../../styles/prism.css')
 
 

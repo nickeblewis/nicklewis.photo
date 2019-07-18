@@ -25,7 +25,6 @@ console.log(
 )
 const Index = ({ data, location }) => {
   //const home = data.contentfulHome
-  const galleries = data.allContentfulGallery.edges
   const products = data.allSanityGallery.edges
   const site = data.site
   
@@ -48,16 +47,7 @@ const Index = ({ data, location }) => {
                 excerpt={prod.blurb}
               />
             ))}
-            {galleries.map(({ node: gallery }) => (
-              <PortfolioList
-                key={gallery.id}
-                slug={gallery.slug}
-                image={gallery.heroImage}
-                title={gallery.title}
-                date={gallery.publishDate}
-                excerpt={gallery.body}
-              />
-            ))}
+            
           </PortfolioBodyBottom>
         </PortfolioBody>
       </WrapperGrid>
@@ -112,46 +102,8 @@ export const query = graphql`
         }
       }
     }
-    allContentfulGallery(
-      filter: { public: { ne: false } }
-      limit: 1000
-      sort: { fields: [publishDate], order: DESC }
-    ) {
-      edges {
-        node {
-          title
-          id
-          slug
-          publishDate(formatString: "DD MMM YYYY")
-          heroImage {
-            title
-            fluid(maxWidth: 1000) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          body {
-            childMarkdownRemark {
-              excerpt(pruneLength: 240)
-            }
-          }
-        }
-      }
-    }
-    contentfulHome {
-      title
-      id
-      heroImage {
-        title
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
+   
+    
   }
 `
 

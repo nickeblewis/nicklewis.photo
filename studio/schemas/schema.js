@@ -21,6 +21,7 @@ import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
+import youtube from './objects/youtube'
 // TODO: I will later need to add my own content types when back at home
     // import gallery,
     // page,
@@ -48,7 +49,8 @@ export default createSchema({
     authorReference,
     bodyPortableText,
     bioPortableText,
-    excerptPortableText
+    excerptPortableText,
+    youtube
 
     // TODO: I will later need to add my own content types when back at home
     // gallery,

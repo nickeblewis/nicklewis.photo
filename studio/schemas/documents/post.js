@@ -124,8 +124,8 @@ export default {
       const path = `/${dateSegment}/${slug.current || ''}/`
       return {
         title,
-        media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
+        media
+        //subtitle: publishedAt ? path : 'Missing publishing date'
       }
     }
   }

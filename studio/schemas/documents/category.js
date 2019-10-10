@@ -13,6 +13,17 @@ export default {
       name: 'description',
       type: 'text',
       title: 'Description'
+    },
+    {
+      name: 'parents',
+      type: 'array',
+      title: 'Parents',
+      of: [
+        {
+          type: 'reference',
+          to: {type: 'category'}
+        }
+      ]
     }
   ]
 }

@@ -10,6 +10,29 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
+        .title('Posts by Category')
+        .child(
+          S.documentList()
+            .title('Categories')
+            .menuItems(S.documentTypeList('category').getMenuItems())
+            .filter('_type == $type && !defined(parents)')
+            .params({ type: 'category' })
+            .child(categoryId =>
+              S.documentList()
+                .title('Child categories')
+                .menuItems(S.documentTypeList('category').getMenuItems())
+                .filter('_type == $type && $categoryId in parents[]._ref')
+                .params({ type: 'category', categoryId })
+                .child(categoryId =>
+                  S.documentList()
+                    .title('Posts')
+                    .menuItems(S.documentTypeList('post').getMenuItems())
+                    .filter('_type == $type && $categoryId in categories[]._ref')
+                    .params({ type: 'post', categoryId })
+                )
+            )
+        ),
+      S.listItem()
         .title('Settings')
         .icon(MdSettings)
         .child(

@@ -93,6 +93,14 @@ export default {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
+    },
+    {
+      name: 'md',
+      type: 'markdown',
+      title: 'body (markdown)',
+      options: {
+        minRows: 20
+      }
     }
   ],
   orderings: [

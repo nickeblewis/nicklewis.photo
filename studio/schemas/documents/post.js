@@ -93,14 +93,6 @@ export default {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
-    },
-    {
-      name: 'md',
-      type: 'markdown',
-      title: 'body (markdown)',
-      options: {
-        minRows: 20
-      }
     }
   ],
   orderings: [
@@ -145,8 +137,8 @@ export default {
       const path = `/${dateSegment}/${slug.current || ''}/`
       return {
         title,
-        media
-        //subtitle: publishedAt ? path : 'Missing publishing date'
+        media,
+        subtitle: publishedAt ? path : 'Missing publishing date'
       }
     }
   }

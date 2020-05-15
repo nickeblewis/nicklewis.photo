@@ -77,6 +77,19 @@ export default {
       ]
     },
     {
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [
+        {
+          type: 'string'
+        }
+      ],
+      options: {
+        layout: 'tags'
+      }
+    },
+    {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
@@ -124,8 +137,8 @@ export default {
       const path = `/${dateSegment}/${slug.current || ''}/`
       return {
         title,
-        media
-        //subtitle: publishedAt ? path : 'Missing publishing date'
+        media,
+        subtitle: publishedAt ? path : 'Missing publishing date'
       }
     }
   }

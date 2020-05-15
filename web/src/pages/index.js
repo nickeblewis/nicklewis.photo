@@ -27,7 +27,7 @@ const Index = ({ data, location }) => {
   //const home = data.contentfulHome
   const products = data.allSanityGallery.edges
   const site = data.site
-  
+
   return (
     <Layout location={location}>
       <SEO />
@@ -47,7 +47,7 @@ const Index = ({ data, location }) => {
                 excerpt={prod.blurb}
               />
             ))}
-            
+
           </PortfolioBodyBottom>
         </PortfolioBody>
       </WrapperGrid>
@@ -79,7 +79,6 @@ export const query = graphql`
           heroImage {
             asset {
               _id
-              _ref
               id
               fluid {
                 base64
@@ -102,8 +101,8 @@ export const query = graphql`
         }
       }
     }
-   
-    
+
+
   }
 `
 

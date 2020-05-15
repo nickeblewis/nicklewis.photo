@@ -10,7 +10,7 @@ import BlogList from '../components/Blog/BlogList'
 export const query = graphql`
 
   query ArchivePageQuery {
-    posts: allSanityPost(limit: 12, sort: {fields: [publishedAt], order: DESC}) {
+    posts: allSanityPost(filter: {publishedAt: {ne: null}}, limit: 12, sort: {fields: [publishedAt], order: DESC}) {
       edges {
         node {
           id
@@ -19,7 +19,7 @@ export const query = graphql`
               alt
               caption
               asset {
-                  _ref
+                  id
                   _id
               }
           }

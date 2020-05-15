@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import Headroom from 'react-headroom'
 
@@ -28,7 +28,7 @@ const BackButton = styled(Link)`
   h4 {
     color: var(--color-base) !important;
   }
-  @media screen and (min-width: ${props => props.theme.responsive.large}) {
+  @media screen and (min-width: 75em) {
     position: fixed;
     left: 2rem;
     align-self: flex-start;
@@ -79,9 +79,9 @@ const GalleryHead = props => {
   return (
     <Wrapper>
       <Title>{props.title}</Title>
-      
+
     </Wrapper>
-    
+
   )
 }
 

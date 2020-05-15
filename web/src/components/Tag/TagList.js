@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 const ProjectLink = styled(Link)`
   text-decoration: none;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     width: 25%;
     transition: all 0.5s;
     h1 {
@@ -26,7 +26,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   text-align: center;
   position: relative;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     padding: 2rem;
     z-index: 3;
     text-transform: uppercase;
@@ -37,7 +37,7 @@ const Date = styled.p`
   text-align: center;
   text-transform: uppercase;
   position: relative;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     text-transform: capitalize;
     padding: 0 1rem 1rem;
   }

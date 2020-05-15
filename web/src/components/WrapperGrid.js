@@ -1,12 +1,12 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-template-areas: 'Left' 'Right';
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;

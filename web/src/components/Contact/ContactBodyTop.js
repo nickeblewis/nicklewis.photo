@@ -1,11 +1,11 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
   grid-area: ContactBodyTop;
   margin: 0;
   padding: 0;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     margin: 3.5rem 0 0;
   }
 `

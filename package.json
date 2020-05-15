@@ -15,9 +15,9 @@
   },
   "devDependencies": {
     "@sanity/cli": "^0.140.17",
-    "lerna": "^3.13.1"
+    "lerna": "^3.21.0"
   },
   "dependencies": {
-    "gatsby-plugin-manifest": "^2.1.1"
+    "gatsby-plugin-manifest": "^2.4.3"
   }
 }

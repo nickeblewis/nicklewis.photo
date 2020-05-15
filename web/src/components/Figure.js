@@ -6,7 +6,7 @@ export default ({ node }) => {
   const sanityConfig = {projectId: '85cmsqr4', dataset: 'production'}
 
   const fluidProps = getFluidGatsbyImage(
-    node.asset._ref,
+    node.asset.id,
     { maxWidth: 675 },
     sanityConfig
   )

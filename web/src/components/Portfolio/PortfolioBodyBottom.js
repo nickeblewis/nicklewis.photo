@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
   grid-area: PortfolioBodyBottom;
@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   display: grid;
   grid-gap: 0;
   grid-template-columns: repeat(1, 1fr);
-  @media screen and (min-width: ${props => props.theme.responsive.large}) {
+  @media screen and (min-width: 75em) {
     grid-template-columns: repeat(2, 1fr);
   }
 `

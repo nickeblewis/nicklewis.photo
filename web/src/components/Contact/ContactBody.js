@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
   grid-area: Right;
@@ -11,7 +11,7 @@ const Wrapper = styled.section`
   grid-template-rows: repeat(auto);
   grid-gap: 0;
   grid-template-areas: 'ContactBodyTop' 'ContactBodyBottom';
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     display: grid;
     height: 100%;
     grid-template-columns: 1fr;

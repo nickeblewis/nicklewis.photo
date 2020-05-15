@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { push as Menu } from 'react-burger-menu'
 import Social from '../components/Social'
 
@@ -77,7 +77,7 @@ const MenuMobile = styled(Menu)`
   a {
     text-decoration: none;
     padding: 0.25rem;
-    @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    @media screen and (min-width: 55em) {
       padding: 1rem;
     }
   }
@@ -115,9 +115,9 @@ const Navigation = () => {
               </h2>
             </li>
             <li>
-              <h2>
+              <h1>
                 <Link to="/blog">Blog</Link>
-              </h2>
+              </h1>
             </li>
             {/*<li>
               <h2>
@@ -138,7 +138,7 @@ const Navigation = () => {
             <li>
               <Social />
             </li>
-            
+
           </ul>
         </MenuMobile>
       </Header>

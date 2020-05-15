@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import PortableText from '../block-content/portableText'
 import { Link } from 'gatsby'
 require('../../styles/prism.css')
@@ -92,14 +92,14 @@ const Body = styled.div`
     border-left: 4px solid var(--color-highlight);
     padding: 0 0 0 0.5em;
     width: calc(100vw - 4rem);
-    @media (min-width: ${props => props.theme.responsive.medium}) {
+    @media (min-width: 55em) {
       width: 100%;
     }
   }
   pre,
   code {
     width: calc(100vw - 4rem);
-    @media (min-width: ${props => props.theme.responsive.medium}) {
+    @media (min-width: 55em) {
       width: 100%;
     }
   }
@@ -107,7 +107,7 @@ const Body = styled.div`
     box-shadow: 10px 5px 5px red;
     padding: 0.5rem;
   }
-  @media (min-width: ${props => props.theme.responsive.medium}) {
+  @media (min-width: 55em) {
     overflow-x: auto;
     width: auto;
     max-width: 45vw;
@@ -149,7 +149,7 @@ const Article = props => {
 <Body>
       {props.body && <PortableText blocks={props.body || []} />}
       </Body>
-      
+
 
       {/* <Body
         dangerouslySetInnerHTML={{
@@ -166,7 +166,7 @@ const Article = props => {
           <NextLink to={`/blog/${props.next.slug}/`}>Next Post</NextLink>
         )}
         </LinkWrapper> */}
-        
+
     </Wrapper>
   )
 }

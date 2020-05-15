@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import 'whatwg-fetch'
 
 const Form = styled.form`
@@ -59,7 +59,7 @@ const Form = styled.form`
 const Name = styled.input`
   margin: 0 0 2rem 0;
   width: 100%;
-  @media (min-width: ${props => props.theme.responsive.small}) {
+  @media (min-width: 35em) {
     width: 48%;
   }
 `
@@ -67,7 +67,7 @@ const Name = styled.input`
 const Email = styled.input`
   margin: 0 0 2rem 0;
   width: 100%;
-  @media (min-width: ${props => props.theme.responsive.small}) {
+  @media (min-width: 35em) {
     width: 48%;
   }
 `
@@ -90,7 +90,7 @@ const Submit = styled.input`
     border: 2px solid var(--color-highlight) !important;
     background: var(--color-highlight) !important;
   }
-  @media (min-width: ${props => props.theme.responsive.medium}) {
+  @media (min-width: 55em) {
     width: 48%;
   }
 `
@@ -113,7 +113,7 @@ const Modal = styled.div`
   transition: 0.2s all;
   opacity: ${props => (props.visible ? '1' : '0')};
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+  @media screen and (min-width: 35em) {
     min-width: inherit;
     max-width: 400px;
   }

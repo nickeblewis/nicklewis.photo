@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
@@ -7,7 +7,7 @@ const ProjectLink = styled(Link)`
   text-decoration: none;
   padding: 0;
   margin: 0;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     transition: all 0.5s;
     display: inline-block;
     &:hover div {
@@ -28,7 +28,7 @@ const Cover = styled.div`
     object-fit: cover !important;
     display: block;
   }
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     position: fixed !important;
     pointer-events: none;
     transition: opacity 0.3s, visibility 0.3s;
@@ -49,7 +49,7 @@ const Title = styled.h2`
   text-transform: uppercase;
   margin: 0;
   padding: 1rem 2rem 0;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     padding: 0 2rem;
     z-index: 3;
   }
@@ -67,7 +67,7 @@ const ProductList = props => {
         {props.image.asset &&
           <Img fluid={props.image.asset.fluid} />
         }
-        
+
       </Cover>
       <Title>{props.title}</Title>
       <Excerpt

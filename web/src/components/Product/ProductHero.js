@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 
 const Wrapper = styled.div`
   display: none;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     display: block;
     grid-area: Left;
     width: 100%;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `
 
 const Hero = styled.div`
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     grid-area: left;
     position: fixed !important;
     pointer-events: none;

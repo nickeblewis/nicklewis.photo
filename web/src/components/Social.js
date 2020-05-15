@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import Ionicon from 'react-ionicons'
 
 const Wrapper = styled.section`
   margin: 1rem auto 0;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     margin: 0;
   }
 `

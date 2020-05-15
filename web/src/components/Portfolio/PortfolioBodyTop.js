@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import Social from '../../components/Social'
 
 const Wrapper = styled.section`
@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   padding: 2rem;
   display: grid;
   grid-template-rows: repeat(auto);
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 55em) {
     height: 100%;
     min-height: 0;
   }
